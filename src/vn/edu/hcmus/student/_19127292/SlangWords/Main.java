@@ -2,9 +2,10 @@ package vn.edu.hcmus.student._19127292.SlangWords;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
+import java.util.HashMap;
 import javax.swing.border.EmptyBorder;
-
 
 /**
  * vn.edu.hcmus.student._19127292.SlangWords
@@ -13,16 +14,37 @@ import javax.swing.border.EmptyBorder;
  * Description: Main Frame
  */
 public class Main extends JFrame {
+    HashMap<String, String> dictionary;
+
     public static void main(String[] args) {
         new Main();
     }
 
     public Main() {
+        loadDictionary();
         addComponents();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Slang Words");
         setVisible(true);
+    }
+
+    public void loadDictionary() {
+        dictionary = new HashMap<>();
+
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("slang.txt"));
+            bufferedReader.readLine(); // Skip first line
+
+            String line;
+            while ((line = bufferedReader.readLine())!= null) {
+                String[] str = line.split("`");
+                if (str.length == 2)
+                    dictionary.put(str[0], str[1]); // Only add lines in correct format
+            }
+        } catch (Exception exception) {
+            System.out.println("Error: "+ exception);
+        }
     }
 
     public void addComponents() {
