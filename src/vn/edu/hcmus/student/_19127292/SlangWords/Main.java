@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
  */
 public class Main extends JFrame {
     HashMap<String, String> dictionary;
+    JPanel viewPanel;
 
     public static void main(String[] args) {
         new Main();
@@ -54,47 +55,48 @@ public class Main extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         // Title Label
-        JLabel titleLabel = new JLabel("Slang Words", JLabel.CENTER);
+        JLabel titleLabel = new JLabel("S L A N G       W O R D S", JLabel.CENTER);
         titleLabel.setBorder(new EmptyBorder(5, 5, 5 ,5));
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         // About Label
         JLabel aboutLabel = new JLabel("Nguyễn Thanh Tình - 19127292 - Introduction to Java - 19KTPM3", JLabel.RIGHT);
         aboutLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         // View Panel
-        JPanel viewPanel = new JPanel();
+        viewPanel = new JPanel();
 
         // Menu Panel
         JPanel menuPanel = new JPanel();
         menuPanel.setLayout(new BorderLayout());
         menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-        JButton functionButton1 = new JButton("Function 1");
-        functionButton1.addActionListener(e -> {});
+        JButton functionButton01 = new JButton("Find by slang");
+        functionButton01.addActionListener(e -> changeView(new Function01(dictionary)));
 
-        JButton functionButton2 = new JButton("Function 2");
-        functionButton2.addActionListener(e -> {});
+        JButton functionButton02 = new JButton("Function 02");
+        functionButton02.addActionListener(e -> changeView(new Function02()));
 
-        JButton functionButton3 = new JButton("Function 3");
-        functionButton3.addActionListener(e -> {});
+        JButton functionButton03 = new JButton("Function 03");
+        functionButton03.addActionListener(e -> {});
 
-        JButton functionButton4 = new JButton("Function 4");
-        functionButton4.addActionListener(e -> {});
+        JButton functionButton04 = new JButton("Function 04");
+        functionButton04.addActionListener(e -> {});
 
-        JButton functionButton5 = new JButton("Function 5");
-        functionButton5.addActionListener(e -> {});
+        JButton functionButton05 = new JButton("Function 05");
+        functionButton05.addActionListener(e -> {});
 
-        JButton functionButton6 = new JButton("Function 6");
-        functionButton6.addActionListener(e -> {});
+        JButton functionButton06 = new JButton("Function 06");
+        functionButton06.addActionListener(e -> {});
 
-        JButton functionButton7 = new JButton("Function 7");
-        functionButton7.addActionListener(e -> {});
+        JButton functionButton07 = new JButton("Function 07");
+        functionButton07.addActionListener(e -> {});
 
-        JButton functionButton8 = new JButton("Function 8");
-        functionButton8.addActionListener(e -> {});
+        JButton functionButton08 = new JButton("Function 08");
+        functionButton08.addActionListener(e -> {});
 
-        JButton functionButton9 = new JButton("Function 9");
-        functionButton9.addActionListener(e -> {});
+        JButton functionButton09 = new JButton("Function 09");
+        functionButton09.addActionListener(e -> {});
 
         JButton functionButton10 = new JButton("Function 10");
         functionButton10.addActionListener(e -> {});
@@ -102,15 +104,15 @@ public class Main extends JFrame {
         JPanel buttonContainer = new JPanel();
         buttonContainer.setLayout(new GridLayout(10, 0, 0, 5));
 
-        buttonContainer.add(functionButton1);
-        buttonContainer.add(functionButton2);
-        buttonContainer.add(functionButton3);
-        buttonContainer.add(functionButton4);
-        buttonContainer.add(functionButton5);
-        buttonContainer.add(functionButton6);
-        buttonContainer.add(functionButton7);
-        buttonContainer.add(functionButton8);
-        buttonContainer.add(functionButton9);
+        buttonContainer.add(functionButton01);
+        buttonContainer.add(functionButton02);
+        buttonContainer.add(functionButton03);
+        buttonContainer.add(functionButton04);
+        buttonContainer.add(functionButton05);
+        buttonContainer.add(functionButton06);
+        buttonContainer.add(functionButton07);
+        buttonContainer.add(functionButton08);
+        buttonContainer.add(functionButton09);
         buttonContainer.add(functionButton10);
 
         menuPanel.add(buttonContainer, BorderLayout.PAGE_START);
@@ -123,5 +125,11 @@ public class Main extends JFrame {
 
         setContentPane(contentPane);
         pack();
+    }
+
+    void changeView(JPanel newView) {
+        remove(viewPanel);
+        add(viewPanel = newView);
+        validate();
     }
 }
