@@ -77,8 +77,8 @@ public class Main extends JFrame {
         JButton functionButton02 = new JButton("Find by definition");
         functionButton02.addActionListener(e -> changeView(new Function02(dictionary)));
 
-        JButton functionButton03 = new JButton("Function 03");
-        functionButton03.addActionListener(e -> {});
+        JButton functionButton03 = new JButton("History");
+        functionButton03.addActionListener(e -> changeView(new Function03(dictionary)));
 
         JButton functionButton04 = new JButton("Function 04");
         functionButton04.addActionListener(e -> {});

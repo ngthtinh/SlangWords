@@ -56,5 +56,7 @@ public class Function01 extends JPanel {
         String ans = dictionary.get(str);
         slangLabel.setText(ans != null ? str : "No slang!");
         meaningLabel.setText(ans != null ? "➥ " + ans : "Try another slang!");
+
+        if (ans != null) Function03.addHistory(str);
     }
 }

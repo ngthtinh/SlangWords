@@ -83,5 +83,7 @@ public class Function02 extends JPanel {
     void displaySlang(HashMap<String, String> dictionary, String str) {
         slangLabel.setText(str);
         meaningLabel.setText("➥ " + dictionary.get(str));
+
+        Function03.addHistory(str);
     }
 }
