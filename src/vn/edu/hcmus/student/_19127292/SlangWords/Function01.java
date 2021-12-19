@@ -45,7 +45,7 @@ public class Function01 extends JPanel {
         slangPanel.add(meaningLabel);
 
         // Settings and Add components to panel
-        setBorder(new EmptyBorder(5, 5, 5, 5));
+        setBorder(new EmptyBorder(5, 0, 0, 0));
         setLayout(new BorderLayout());
 
         add(findPanel, BorderLayout.PAGE_START);
