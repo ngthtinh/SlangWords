@@ -83,8 +83,8 @@ public class Main extends JFrame {
         JButton functionButton04 = new JButton("Add a slang");
         functionButton04.addActionListener(e -> changeView(new Function04(dictionary)));
 
-        JButton functionButton05 = new JButton("Function 05");
-        functionButton05.addActionListener(e -> {});
+        JButton functionButton05 = new JButton("Edit a slang");
+        functionButton05.addActionListener(e -> changeView(new Function05(dictionary)));
 
         JButton functionButton06 = new JButton("Function 06");
         functionButton06.addActionListener(e -> {});
@@ -123,6 +123,7 @@ public class Main extends JFrame {
         contentPane.add(viewPanel, BorderLayout.CENTER);
         contentPane.add(menuPanel, BorderLayout.LINE_START);
 
+        setPreferredSize(new Dimension(700, 500));
         setContentPane(contentPane);
         pack();
     }

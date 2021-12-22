@@ -33,6 +33,7 @@ public class Function04 extends JPanel {
         informationPanel.setLayout(new BoxLayout(informationPanel, BoxLayout.Y_AXIS));
         informationPanel.setBorder(new EmptyBorder(0, 0, 0, 5));
         informationPanel.add(slangPanel);
+        informationPanel.add(Box.createVerticalStrut(2));
         informationPanel.add(meaningPanel);
 
         // Add button
