@@ -86,8 +86,8 @@ public class Main extends JFrame {
         JButton functionButton05 = new JButton("Edit a slang");
         functionButton05.addActionListener(e -> changeView(new Function05(dictionary)));
 
-        JButton functionButton06 = new JButton("Function 06");
-        functionButton06.addActionListener(e -> {});
+        JButton functionButton06 = new JButton("Delete a slang");
+        functionButton06.addActionListener(e -> changeView(new Function06(dictionary)));
 
         JButton functionButton07 = new JButton("Function 07");
         functionButton07.addActionListener(e -> {});
