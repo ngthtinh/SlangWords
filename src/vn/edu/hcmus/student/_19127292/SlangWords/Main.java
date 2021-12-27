@@ -92,8 +92,8 @@ public class Main extends JFrame {
         JButton functionButton07 = new JButton("Reset dictionary");
         functionButton07.addActionListener(e -> Function07.resetDictionary(this, dictionary));
 
-        JButton functionButton08 = new JButton("Function 08");
-        functionButton08.addActionListener(e -> {});
+        JButton functionButton08 = new JButton("On this day slang");
+        functionButton08.addActionListener(e -> changeView(new Function08(dictionary)));
 
         JButton functionButton09 = new JButton("Function 09");
         functionButton09.addActionListener(e -> {});
