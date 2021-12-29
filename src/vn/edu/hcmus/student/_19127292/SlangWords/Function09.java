@@ -1,10 +1,11 @@
 package vn.edu.hcmus.student._19127292.SlangWords;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 import java.util.HashMap;
+import java.util.Random;
+import javax.swing.border.EmptyBorder;
 
 /**
  * vn.edu.hcmus.student._19127292.SlangWords
@@ -13,12 +14,18 @@ import java.util.HashMap;
  * Description: Function 09 Class
  */
 public class Function09 extends JPanel {
+    HashMap<String, String> dictionary;
     JLabel questionLabel;
     JButton[] answerButton;
 
+    int answer;
+
     public Function09(HashMap<String, String> dictionary) {
+        // Save dictionary
+        this.dictionary = dictionary;
+
         // Question Panel
-        questionLabel = new JLabel("A?");
+        questionLabel = new JLabel();
 
         JPanel questionPanel = new JPanel();
         questionPanel.setBorder(new EmptyBorder(10, 0, 10, 0));
@@ -28,10 +35,23 @@ public class Function09 extends JPanel {
         JPanel answersPanel = new JPanel(new GridLayout(2, 2, 5, 5 ));
 
         answerButton = new JButton[4];
-        for (int i = 0; i < 4; i++) {
-            answerButton[i] = new JButton("B");
-            answersPanel.add(answerButton[i]);
-        }
+
+        answerButton[0] = new JButton();
+        answerButton[0].addActionListener(e -> answerButtonEventHandler(0));
+
+        answerButton[1] = new JButton();
+        answerButton[1].addActionListener(e -> answerButtonEventHandler(1));
+
+        answerButton[2] = new JButton();
+        answerButton[2].addActionListener(e -> answerButtonEventHandler(2));
+
+        answerButton[3] = new JButton();
+        answerButton[3].addActionListener(e -> answerButtonEventHandler(3));
+
+        answersPanel.add(answerButton[0]);
+        answersPanel.add(answerButton[1]);
+        answersPanel.add(answerButton[2]);
+        answersPanel.add(answerButton[3]);
 
         // Settings and Add components to panel
         setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -39,5 +59,39 @@ public class Function09 extends JPanel {
 
         add(questionPanel, BorderLayout.PAGE_START);
         add(answersPanel, BorderLayout.CENTER);
+
+        // Create question
+        createQuestion();
+    }
+
+    void createQuestion() {
+        Random random = new Random();
+
+        answer = random.nextInt(0, 4);
+
+        for (int i = 0; i < 4; i++) {
+            String randomKey = dictionary.keySet().toArray()[
+                    random.nextInt(dictionary.keySet().toArray().length)].toString();
+
+            if (i == answer) questionLabel.setText(randomKey);
+            answerButton[i].setText(dictionary.get(randomKey));
+        }
+    }
+
+    void answerButtonEventHandler(int choice) {
+        if (choice == answer) {
+            JOptionPane.showMessageDialog(this,
+                    "Correct!",
+                    "Correct answer",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            JOptionPane.showMessageDialog(this,
+                    "Wrong! The answer is " + answerButton[answer].getText(),
+                    "Wrong answer",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        createQuestion();
     }
 }
