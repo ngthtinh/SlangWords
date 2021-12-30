@@ -98,8 +98,8 @@ public class Main extends JFrame {
         JButton functionButton09 = new JButton("Guess meaning");
         functionButton09.addActionListener(e -> changeView(new Function09(dictionary)));
 
-        JButton functionButton10 = new JButton("Function 10");
-        functionButton10.addActionListener(e -> {});
+        JButton functionButton10 = new JButton("Guess slang");
+        functionButton10.addActionListener(e -> changeView(new Function10(dictionary)));
 
         JPanel buttonContainer = new JPanel();
         buttonContainer.setLayout(new GridLayout(10, 0, 0, 5));
