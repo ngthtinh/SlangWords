@@ -25,6 +25,8 @@ public class Function10 extends JPanel{
 
         // Question Panel
         questionLabel = new JLabel();
+        questionLabel.setFont(new Font("Arial", Font.PLAIN, 30));
+        questionLabel.setForeground(Color.BLUE);
 
         JPanel questionPanel = new JPanel();
         questionPanel.setBorder(new EmptyBorder(10, 0, 10, 0));
