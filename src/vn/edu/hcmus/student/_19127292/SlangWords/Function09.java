@@ -3,8 +3,7 @@ package vn.edu.hcmus.student._19127292.SlangWords;
 import javax.swing.*;
 import java.awt.*;
 
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 import javax.swing.border.EmptyBorder;
 
 /**
