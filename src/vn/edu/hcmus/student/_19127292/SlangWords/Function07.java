@@ -10,9 +10,14 @@ import java.util.HashMap;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 26-Dec-21 - 21:20
- * Description: Function 07 Class
+ * Description: Function 07 Class - Reset Dictionary
  */
 public class Function07 {
+    /**
+     * Reset Dictionary: Display JOptionPane and ask for user decide
+     * @param parentComponent Parent Component which call this Functions
+     * @param dictionary HashMap
+     */
     public static void resetDictionary(Component parentComponent, HashMap<String, String> dictionary) {
         int choice = JOptionPane.showConfirmDialog(parentComponent,
                 "Do you really want to reset dictionary?",

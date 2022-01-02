@@ -10,15 +10,33 @@ import javax.swing.border.EmptyBorder;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 30-Dec-21 - 23:16
- * Description: Function 10 Class
+ * Description: Function 10 Class - Guess Slang
  */
 public class Function10 extends JPanel{
+    /**
+     * Attribute: Dictionary
+     */
     HashMap<String, String> dictionary;
+
+    /**
+     * Attribute: Question Label
+     */
     JLabel questionLabel;
+
+    /**
+     * Attribute: Answer Buttons
+     */
     JButton[] answerButton;
 
+    /**
+     * Attribute: Answer - Integer of 0 1 2 3 for A B C D
+     */
     int answer;
 
+    /**
+     * Default Constructor: Add components to Function10 JPanel
+     * @param dictionary HashMap
+     */
     public Function10(HashMap<String, String> dictionary) {
         // Save dictionary
         this.dictionary = dictionary;
@@ -65,6 +83,9 @@ public class Function10 extends JPanel{
         createQuestion();
     }
 
+    /**
+     * Create Question
+     */
     void createQuestion() {
         Random random = new Random();
 
@@ -79,6 +100,10 @@ public class Function10 extends JPanel{
         }
     }
 
+    /**
+     * Hit Answer Button Event Handler
+     * @param choice User choice
+     */
     void answerButtonEventHandler(int choice) {
         if (choice == answer) {
             JOptionPane.showMessageDialog(this,

@@ -5,9 +5,9 @@ import java.awt.*;
 import java.io.*;
 
 import java.util.HashMap;
-import javax.swing.border.EmptyBorder;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
+import javax.swing.border.EmptyBorder;
 
 /**
  * vn.edu.hcmus.student._19127292.SlangWords
@@ -16,13 +16,27 @@ import java.awt.event.WindowEvent;
  * Description: Main Frame
  */
 public class Main extends JFrame {
+    /**
+     * Attribute: Dictionary, in HashMap Collection
+     */
     HashMap<String, String> dictionary;
+
+    /**
+     * Attribute: JPanel of View Panel, change for each function
+     */
     JPanel viewPanel;
 
+    /**
+     * Main class: create Frame
+     * @param args String
+     */
     public static void main(String[] args) {
         new Main();
     }
 
+    /**
+     * Default constructor
+     */
     public Main() {
         loadData();
         addComponents();
@@ -32,6 +46,9 @@ public class Main extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Load data: Load dictionary and history
+     */
     @SuppressWarnings("unchecked")
     public void loadData() {
         // Load dictionary
@@ -63,6 +80,9 @@ public class Main extends JFrame {
         Function03.loadHistory();
     }
 
+    /**
+     * Add components to Main Frame
+     */
     public void addComponents() {
         // Content Pane Layout
         JPanel contentPane = new JPanel();
@@ -138,7 +158,7 @@ public class Main extends JFrame {
         contentPane.add(viewPanel, BorderLayout.CENTER);
         contentPane.add(menuPanel, BorderLayout.LINE_START);
 
-        setPreferredSize(new Dimension(700, 500));
+        setPreferredSize(new Dimension(700, 425));
         setContentPane(contentPane);
         pack();
 
@@ -150,12 +170,19 @@ public class Main extends JFrame {
         });
     }
 
+    /**
+     * Change view panel with corresponding funtion
+     * @param newView JPanel
+     */
     void changeView(JPanel newView) {
         remove(viewPanel);
         add(viewPanel = newView);
         validate();
     }
 
+    /**
+     * Window Closing Event Handler
+     */
     void windowClosingEventHandler() {
         // Save dictionary
         try {

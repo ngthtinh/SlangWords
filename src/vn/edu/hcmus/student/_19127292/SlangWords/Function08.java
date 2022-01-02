@@ -10,9 +10,13 @@ import javax.swing.border.EmptyBorder;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 27-Dec-21 - 23:38
- * Description: Function 08 Class
+ * Description: Function 08 Class - Display Random Slang
  */
 public class Function08 extends JPanel {
+    /**
+     * Default Constructor: Add components to Function08 JPanel
+     * @param dictionary HashMap
+     */
     public Function08(HashMap<String, String> dictionary) {
         Random random = new Random();
         String randomKey = dictionary.keySet().toArray()[

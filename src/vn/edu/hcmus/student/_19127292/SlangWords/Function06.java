@@ -10,9 +10,13 @@ import javax.swing.border.EmptyBorder;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 23-Dec-21 - 23:48
- * Description: Function 06 Class
+ * Description: Function 06 Class - Delete a Slang Word
  */
 public class Function06 extends JPanel {
+    /**
+     * Default constructor: Add components to Funtion06 JPanel
+     * @param dictionary HashMap
+     */
     public Function06(HashMap<String, String> dictionary) {
         // Find Panel
         JTextField deleteTextField = new JTextField();
@@ -34,6 +38,11 @@ public class Function06 extends JPanel {
         add(deletePanel, BorderLayout.PAGE_START);
     }
 
+    /**
+     * Hit Delete Button Event Handler: Change dictionary
+     * @param dictionary HashMap
+     * @param str String
+     */
     void deleteButtonEventHandler(HashMap<String, String> dictionary, String str) {
         String ans = dictionary.get(str);
 

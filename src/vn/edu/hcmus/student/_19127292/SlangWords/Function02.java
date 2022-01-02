@@ -1,25 +1,37 @@
 package vn.edu.hcmus.student._19127292.SlangWords;
 
 import javax.swing.*;
+import java.util.*;
 import java.awt.*;
 
 import javax.swing.border.EmptyBorder;
-
-import java.util.HashMap;
-import java.util.Vector;
 
 /**
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 18-Dec-21 - 16:43
- * Description: Function 02 Class
+ * Description: Function 02 Class - Find by Definition
  */
 public class Function02 extends JPanel {
+    /**
+     * Attribute: Search result list
+     */
     JList<String> resultList;
 
+    /**
+     * Attribute: Slang Label
+     */
     JLabel slangLabel;
+
+    /**
+     * Attribute: Meaning Label
+     */
     JLabel meaningLabel;
 
+    /**
+     * Default Constructor: Add components to Function02 JPanel
+     * @param dictionary HashMap
+     */
     public Function02(HashMap<String, String> dictionary) {
         // Find Panel
         JTextField findTextField = new JTextField();
@@ -66,6 +78,11 @@ public class Function02 extends JPanel {
         add(slangPanel, BorderLayout.PAGE_END);
     }
 
+    /**
+     * Find Button Event Handler
+     * @param dictionary HashMap
+     * @param str String
+     */
     void findButtonEventHandler(HashMap<String, String> dictionary, String str) {
         Vector<String> results = new Vector<>();
 
@@ -80,6 +97,11 @@ public class Function02 extends JPanel {
         } else resultList.setListData(results);
     }
 
+    /**
+     * Display Slang when choose a slang
+     * @param dictionary HashMap
+     * @param str String
+     */
     void displaySlang(HashMap<String, String> dictionary, String str) {
         slangLabel.setText(str);
         meaningLabel.setText("➥ " + dictionary.get(str));

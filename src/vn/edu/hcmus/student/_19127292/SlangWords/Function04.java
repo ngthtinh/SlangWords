@@ -10,9 +10,13 @@ import javax.swing.border.EmptyBorder;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 21-Dec-21 - 07:59
- * Description: Function 04 Class
+ * Description: Function 04 Class - Add a new slang word
  */
 public class Function04 extends JPanel {
+    /**
+     * Default Constructor: Add components to Function04 JPanel
+     * @param dictionary HashMap
+     */
     public Function04(HashMap<String, String> dictionary) {
         // Information panel
         JTextField slangTextField = new JTextField();
@@ -56,6 +60,12 @@ public class Function04 extends JPanel {
         add(panel, BorderLayout.PAGE_START);
     }
 
+    /**
+     * Hit Add Button Event Handler: Add to dictionary
+     * @param dictionary HashMap
+     * @param slang String
+     * @param meaning String
+     */
     public void addButtonEventHandler(HashMap<String, String> dictionary, String slang, String meaning) {
         if (dictionary.containsKey(slang)) {
             String[] options = {"Overwrite it", "Only add meaning", "Cancel"};

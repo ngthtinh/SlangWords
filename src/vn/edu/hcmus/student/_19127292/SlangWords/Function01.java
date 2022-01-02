@@ -10,12 +10,23 @@ import javax.swing.border.EmptyBorder;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 18-Dec-21 - 16:32
- * Description: Function 01 Class
+ * Description: Function 01 Class - Find by Slang Word
  */
 public class Function01 extends JPanel {
+    /**
+     * Attribute: Slang Label
+     */
     JLabel slangLabel;
+
+    /**
+     * Attribute: Meaning Label
+     */
     JLabel meaningLabel;
 
+    /**
+     * Default constructor, add components to Function01 Panel
+     * @param dictionary HashMap
+     */
     public Function01(HashMap<String, String> dictionary) {
         // Find Panel
         JTextField findTextField = new JTextField();
@@ -52,6 +63,11 @@ public class Function01 extends JPanel {
         add(slangPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Find button event handler
+     * @param dictionary HashMap
+     * @param str String
+     */
     void findButtonEventHandler(HashMap<String, String> dictionary, String str) {
         String ans = dictionary.get(str);
         slangLabel.setText(ans != null ? str : "No slang!");

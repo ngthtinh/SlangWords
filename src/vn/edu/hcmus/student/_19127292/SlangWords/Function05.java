@@ -10,12 +10,23 @@ import javax.swing.border.EmptyBorder;
  * vn.edu.hcmus.student._19127292.SlangWords
  * Created by 19127292 - Nguyen Thanh Tinh
  * Date 22-Dec-21 - 22:06
- * Description: Function 05
+ * Description: Function 05 - Edit a slang word
  */
 public class Function05 extends JPanel {
+    /**
+     * Attribute: Slang TextField
+     */
     JTextField slangTextField;
+
+    /**
+     * Attribute: Meaning TextField
+     */
     JTextField meaningTextField;
 
+    /**
+     * Default Constructor: Add components to Function05 JPanel
+     * @param dictionary HashMap
+     */
     public Function05(HashMap<String, String> dictionary) {
         // Find Panel
         JTextField findTextField = new JTextField();
@@ -76,12 +87,22 @@ public class Function05 extends JPanel {
         add(editPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Hit Find Button Event Handler: Display slang informarion
+     * @param dictionary HashMap
+     * @param str String
+     */
     void findButtonEventHandler(HashMap<String, String> dictionary, String str) {
         String ans = dictionary.get(str);
         slangTextField.setText(ans != null ? str : "");
         meaningTextField.setText(ans != null ? ans : "No slang!");
     }
 
+    /**
+     * Hit Edit Button Event Handler: Change data in dictionary
+     * @param dictionary HashMap
+     * @param meaning String
+     */
     void editButtonEventHandler(HashMap<String, String> dictionary, String meaning) {
         if (slangTextField.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please find a correct slang!");
