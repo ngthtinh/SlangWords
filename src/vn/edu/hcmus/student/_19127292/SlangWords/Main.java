@@ -53,7 +53,7 @@ public class Main extends JFrame {
     public void loadData() {
         // Load dictionary
         try {
-            // Load from previous run data
+            // Load from previous run data - Java Serialization - Mr. Nguyen Van Khiet
             ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Dictionary.DAT"));
             dictionary = (HashMap<String, String>) objectInputStream.readObject();
             objectInputStream.close();
@@ -186,6 +186,7 @@ public class Main extends JFrame {
     void windowClosingEventHandler() {
         // Save dictionary
         try {
+            // Load from previous run data - Java Serialization - Mr. Nguyen Van Khiet
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
                     new FileOutputStream("Dictionary.DAT"));
             objectOutputStream.writeObject(dictionary);

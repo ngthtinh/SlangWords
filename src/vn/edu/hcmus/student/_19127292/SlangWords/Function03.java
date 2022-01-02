@@ -43,6 +43,7 @@ public class Function03 extends JPanel {
     @SuppressWarnings("unchecked")
     public static void loadHistory() {
         try {
+            // Load from previous run data - Java Serialization - Mr. Nguyen Van Khiet
             ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("History.DAT"));
             historySlangs = (Vector<String>) objectInputStream.readObject();
             objectInputStream.close();
@@ -56,6 +57,7 @@ public class Function03 extends JPanel {
      */
     public static void saveHistory() {
         try {
+            // Load from previous run data - Java Serialization - Mr. Nguyen Van Khiet
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("History.DAT"));
             objectOutputStream.writeObject(historySlangs);
             objectOutputStream.close();
