@@ -2,6 +2,8 @@ package vn.edu.hcmus.student._19127292.SlangWords;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 
 import java.util.HashMap;
@@ -24,6 +26,11 @@ public class Main extends JFrame {
     public Main() {
         loadDictionary();
         addComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                System.out.println("Closed");
+            });
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Slang Words");
@@ -132,5 +139,9 @@ public class Main extends JFrame {
         remove(viewPanel);
         add(viewPanel = newView);
         validate();
+    }
+
+    void windowClosingEventHandler() {
+        System.out.println("Closed");
     }
 }
