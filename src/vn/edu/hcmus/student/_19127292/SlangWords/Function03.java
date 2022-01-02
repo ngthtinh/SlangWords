@@ -5,6 +5,10 @@ import java.awt.*;
 
 import javax.swing.border.EmptyBorder;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -18,10 +22,31 @@ public class Function03 extends JPanel {
     JLabel slangLabel;
     JLabel meaningLabel;
 
-    private static final Vector<String> historySlangs = new Vector<>();
+    private static Vector<String> historySlangs = new Vector<>();
 
     public static void addHistory(String str) {
         if (!historySlangs.contains(str)) historySlangs.add(str);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void loadHistory() {
+        try {
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("History.DAT"));
+            historySlangs = (Vector<String>) objectInputStream.readObject();
+            objectInputStream.close();
+        } catch (Exception exception) {
+            assert true;
+        }
+    }
+
+    public static void saveHistory() {
+        try {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("History.DAT"));
+            objectOutputStream.writeObject(historySlangs);
+            objectOutputStream.close();
+        } catch (Exception exception) {
+            assert true;
+        }
     }
 
     public Function03(HashMap<String, String> dictionary) {

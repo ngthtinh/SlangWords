@@ -2,12 +2,12 @@ package vn.edu.hcmus.student._19127292.SlangWords;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.*;
 
 import java.util.HashMap;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * vn.edu.hcmus.student._19127292.SlangWords
@@ -24,35 +24,43 @@ public class Main extends JFrame {
     }
 
     public Main() {
-        loadDictionary();
+        loadData();
         addComponents();
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent event) {
-                System.out.println("Closed");
-            });
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Slang Words");
         setVisible(true);
     }
 
-    public void loadDictionary() {
-        dictionary = new HashMap<>();
-
+    @SuppressWarnings("unchecked")
+    public void loadData() {
+        // Load dictionary
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("slang.txt"));
-            bufferedReader.readLine(); // Skip first line
-
-            String line;
-            while ((line = bufferedReader.readLine())!= null) {
-                String[] str = line.split("`");
-                if (str.length == 2)
-                    dictionary.put(str[0], str[1]); // Only add lines in correct format
-            }
+            // Load from previous run data
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Dictionary.DAT"));
+            dictionary = (HashMap<String, String>) objectInputStream.readObject();
+            objectInputStream.close();
         } catch (Exception exception) {
-            System.out.println("Error: "+ exception);
+            // Load from original data
+            dictionary = new HashMap<>();
+
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("slang.txt"));
+                bufferedReader.readLine(); // Skip first line
+
+                String line;
+                while ((line = bufferedReader.readLine())!= null) {
+                    String[] str = line.split("`");
+                    if (str.length == 2)
+                        dictionary.put(str[0], str[1]); // Only add lines in correct format
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e);
+            }
         }
+
+        // Load history
+        Function03.loadHistory();
     }
 
     public void addComponents() {
@@ -133,6 +141,13 @@ public class Main extends JFrame {
         setPreferredSize(new Dimension(700, 500));
         setContentPane(contentPane);
         pack();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                windowClosingEventHandler();
+            }
+        });
     }
 
     void changeView(JPanel newView) {
@@ -142,6 +157,17 @@ public class Main extends JFrame {
     }
 
     void windowClosingEventHandler() {
-        System.out.println("Closed");
+        // Save dictionary
+        try {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+                    new FileOutputStream("Dictionary.DAT"));
+            objectOutputStream.writeObject(dictionary);
+            objectOutputStream.close();
+        } catch (Exception exception) {
+            assert true;
+        }
+
+        // Save history
+        Function03.saveHistory();
     }
 }
